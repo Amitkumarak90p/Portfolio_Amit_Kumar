@@ -73,7 +73,7 @@ export const Contact = ({ onShowToast }) => {
           {/* Email Card */}
           <div
             className="contact-card copyable-card"
-            onClick={() => handleCopyText(developerInfo.email, 'Email Address')}
+            onClick={() => handleCopyText(developerInfo.email || 'amit.reactnative.dev@gmail.com', 'Email Address')}
             title="Click to Copy Email"
           >
             <div className="c-card-icon">
@@ -81,7 +81,7 @@ export const Contact = ({ onShowToast }) => {
             </div>
             <div className="c-card-content">
               <span className="c-card-lbl">PRIMARY EMAIL</span>
-              <span className="c-card-val">{developerInfo.email}</span>
+              <span className="c-card-val">{developerInfo.email || 'amit.reactnative.dev@gmail.com'}</span>
             </div>
             <span className="c-card-hint">
               <Copy size={13} />
@@ -90,7 +90,7 @@ export const Contact = ({ onShowToast }) => {
 
           {/* WhatsApp Card */}
           <a
-            href={developerInfo.whatsapp}
+            href={developerInfo.whatsapp || 'https://wa.me/916230736027'}
             target="_blank"
             rel="noreferrer"
             className="contact-card link-card"
@@ -101,7 +101,7 @@ export const Contact = ({ onShowToast }) => {
             </div>
             <div className="c-card-content">
               <span className="c-card-lbl">WHATSAPP DIRECT</span>
-              <span className="c-card-val">{developerInfo.phone}</span>
+              <span className="c-card-val">{developerInfo.phone || '+91 62307 36027'}</span>
             </div>
             <span className="c-card-hint">Open ↗</span>
           </a>
@@ -109,7 +109,7 @@ export const Contact = ({ onShowToast }) => {
           {/* Phone Card */}
           <div
             className="contact-card copyable-card"
-            onClick={() => handleCopyText(developerInfo.phone, 'Phone Number')}
+            onClick={() => handleCopyText(developerInfo.phone || '+91 62307 36027', 'Phone Number')}
             title="Click to Copy Phone Number"
           >
             <div className="c-card-icon">
@@ -117,7 +117,7 @@ export const Contact = ({ onShowToast }) => {
             </div>
             <div className="c-card-content">
               <span className="c-card-lbl">MOBILE CONTACT</span>
-              <span className="c-card-val">{developerInfo.phone}</span>
+              <span className="c-card-val">{developerInfo.phone || '+91 62307 36027'}</span>
             </div>
             <span className="c-card-hint">
               <Copy size={13} />
@@ -131,14 +131,14 @@ export const Contact = ({ onShowToast }) => {
             </div>
             <div className="c-card-content">
               <span className="c-card-lbl">GEOGRAPHIC LOCATION</span>
-              <span className="c-card-val">{developerInfo.location}</span>
+              <span className="c-card-val">{developerInfo.location || 'Mohali, Punjab, India'}</span>
             </div>
           </div>
 
           {/* Social Links */}
           <div className="contact-social-strip">
             <a
-              href={developerInfo.github}
+              href={developerInfo.github || 'https://github.com/Amitkumarak90p'}
               target="_blank"
               rel="noreferrer"
               className="social-btn"
@@ -148,7 +148,7 @@ export const Contact = ({ onShowToast }) => {
               <span>GitHub</span>
             </a>
             <a
-              href={developerInfo.linkedin}
+              href={developerInfo.linkedin || 'https://www.linkedin.com/in/amit-kumar-39967b22a/'}
               target="_blank"
               rel="noreferrer"
               className="social-btn"
@@ -168,32 +168,34 @@ export const Contact = ({ onShowToast }) => {
           </div>
 
           <form onSubmit={handleSubmit} className="dev-form" id="contactForm">
-            <div className="form-group">
-              <label className="form-label" htmlFor="contactName">Your Name / Organization</label>
-              <input
-                type="text"
-                id="contactName"
-                name="name"
-                className="form-input"
-                required
-                placeholder="e.g. Sarah Jenkins (Engineering Lead)"
-                value={formState.name}
-                onChange={handleInputChange}
-              />
-            </div>
+            <div className="form-row-2col">
+              <div className="form-group">
+                <label className="form-label" htmlFor="contactName">Your Name / Organization</label>
+                <input
+                  type="text"
+                  id="contactName"
+                  name="name"
+                  className="form-input"
+                  required
+                  placeholder="e.g. Sarah Jenkins (Engineering Lead)"
+                  value={formState.name}
+                  onChange={handleInputChange}
+                />
+              </div>
 
-            <div className="form-group">
-              <label className="form-label" htmlFor="contactEmail">Work Email</label>
-              <input
-                type="email"
-                id="contactEmail"
-                name="email"
-                className="form-input"
-                required
-                placeholder="s.jenkins@company.io"
-                value={formState.email}
-                onChange={handleInputChange}
-              />
+              <div className="form-group">
+                <label className="form-label" htmlFor="contactEmail">Work Email</label>
+                <input
+                  type="email"
+                  id="contactEmail"
+                  name="email"
+                  className="form-input"
+                  required
+                  placeholder="s.jenkins@company.io"
+                  value={formState.email}
+                  onChange={handleInputChange}
+                />
+              </div>
             </div>
 
             <div className="form-group">
